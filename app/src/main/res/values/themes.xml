@@ -1,9 +1,139 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
     <style name="Base.Theme.ContactApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:colorBackground">@color/dark_blue</item>
+        <item name="colorOnBackground">@color/gold</item>
+        <item name="colorPrimary">@color/gold</item>
+        <item name="colorOnPrimary">@color/dark_blue</item>
+        <item name="colorTertiary">@color/light_blue</item>
+        <item name="colorError">@color/red</item>
+        <item name="colorOnError">@color/white</item>
+
+        <item name="materialButtonStyle">@style/Widget.App.ButtonCustom</item>
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout.OutlinedBoxCustom</item>
+
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLargeCustom</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMediumCustom</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.App.TitleSmallCustom</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.App.BodyLargeCustom</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.BodyMediumCustom</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.App.LabelLargeCustom</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.App.LabelSmallCustom</item>
+
+        <item name="android:statusBarColor">@color/dark_blue</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/dark_blue</item>
     </style>
 
     <style name="Theme.ContactApp" parent="Base.Theme.ContactApp" />
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/dark_blue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_screen</item>
+        <item name="postSplashScreenTheme">@style/Theme.ContactApp</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleLargeCustom" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMediumCustom" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleSmallCustom" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyLargeCustom" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMediumCustom" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textColor">?attr/colorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelLargeCustom" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelSmallCustom" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.App.ButtonCustom" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyLarge</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <style name="Widget.App.TextInputLayout.OutlinedBoxCustom" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="android:strokeColor">?attr/colorPrimary</item>
+        <item name="android:textColorHint">?attr/colorTertiary</item>
+        <item name="hintTextAppearance">?attr/textAppearanceBodyMedium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="cursorColor">?attr/colorPrimary</item>
+        <item name="materialThemeOverlay">
+            @style/ThemeOverlay.App.TextInputEditText.OutlinedBoxCustom
+        </item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputEditText.OutlinedBoxCustom" parent="">
+        <item name="editTextStyle">@style/Widget.App.TextInputEditText.OutlinedBoxCustom</item>
+    </style>
+
+    <style name="Widget.App.TextInputEditText.OutlinedBoxCustom" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="Widget.App.FloatingActionButton.Shape" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.FloatingActionButton</item>
+    </style>
+
+    <style name="ShapeAppearance.App.FloatingActionButton" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="CustomBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
+
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearance</item>
+        <item name="backgroundTint">@color/dark_blue</item>
+    </style>
+
+    <style name="CustomShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+    </style>
 </resources>
