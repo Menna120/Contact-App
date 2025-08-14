@@ -1,3 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Contact App</string>
+    <string name="app_name">ContactApp</string>
+    <string name="add_contact_fab">Add Contact</string>
+    <string name="delete_contact_fab">Delete Last Contact</string>
+    <string name="empty_list_message">There is No Contacts Added Here</string>
+    <string name="contact_name_hint">Enter User Name</string>
+    <string name="contact_email_hint">Enter User Email</string>
+    <string name="contact_phone_hint">Enter User Phone</string>
+    <string name="enter_user_button_text">Enter User</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="empty_contacts">Empty Contacts</string>
+    <string name="pick_image">Pick Image</string>
+    <string name="contact_profile_image">Contact profile image</string>
+    <string name="delete">Delete</string>
+    <string name="there_is_no_contacts_added_here">There is No Contacts Added Here</string>
+    <string name="add_new_contact">Add new contact</string>
+    <string name="delete_last_contact">Delete last contact</string>
+    <string name="user_name">User Name</string>
+    <string name="email_example_com">email@example.com</string>
+    <string name="phone_number">+200000000000</string>
+    <string name="no_contacts_to_delete">No contacts to delete</string>
+    <string name="contact_added_success">Contact added: %s</string>
+    <string name="please_fill_all_fields">Please fill all fields</string>
+    <string name="preview_contact_name_placeholder">Contact name</string>
+    <string name="preview_contact_email_placeholder">Contact email</string>
+    <string name="preview_contact_phone_placeholder">Contact phone</string>
+    <string name="intent_type_image">image/*</string>
+    <string name="error_failed_image_picker">Failed to get image picker activity</string>
+    <string name="error_listener_not_implemented">Listener must implement OnContactAddedListener</string>
+    <string name="error_failed_persist_image_permission">Failed to persist image permission</string>
 </resources>
