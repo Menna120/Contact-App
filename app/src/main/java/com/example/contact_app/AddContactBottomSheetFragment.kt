@@ -46,7 +46,13 @@ class AddContactBottomSheetFragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.contactImagePicker.setOnClickListener { openMediaPicker() }
+        binding.contactImagePicker.setOnClickListener {
+            pickMedia.launch(
+                PickVisualMediaRequest(
+                    ActivityResultContracts.PickVisualMedia.ImageOnly
+                )
+            )
+        }
 
         binding.enterContactButton.setOnClickListener {
             val name = binding.editTextName.text.toString().trim()
@@ -54,9 +60,7 @@ class AddContactBottomSheetFragment(
             val phone = binding.editTextPhone.text.toString().trim()
 
             if (name.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty()) {
-                val newContact =
-                    Contact(name = name, email = email, phone = phone, imageUri = selectedImageUri)
-                onEnterClicked(newContact)
+                onEnterClicked(Contact(name, email, phone, selectedImageUri))
                 dismiss()
             }
         }
@@ -69,9 +73,5 @@ class AddContactBottomSheetFragment(
 
     companion object {
         const val TAG = "ContactBottomSheetFragment"
-    }
-
-    private fun openMediaPicker() {
-        pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
 }

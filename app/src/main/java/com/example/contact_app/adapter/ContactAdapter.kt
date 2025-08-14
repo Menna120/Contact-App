@@ -18,7 +18,6 @@ class ContactAdapter(
         private val binding: ContactItemBinding,
         private val onDeleteClicked: (Contact) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-
         fun bind(contact: Contact) {
             binding.contactName.text = contact.name
             binding.contactEmail.text = contact.email
@@ -32,9 +31,7 @@ class ContactAdapter(
                 }
             }
 
-            binding.deleteButton.setOnClickListener {
-                onDeleteClicked(contact)
-            }
+            binding.deleteButton.setOnClickListener { onDeleteClicked(contact) }
         }
     }
 

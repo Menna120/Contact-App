@@ -14,21 +14,22 @@ class MainActivity : AppCompatActivity() {
     private lateinit var contactAdapter: ContactAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         installSplashScreen()
+
+        super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupRecyclerView()
         setupFabs()
-
-        updateUI()
+        refreshUI()
     }
 
     private fun setupRecyclerView() {
         contactAdapter = ContactAdapter { contact ->
             contacts.remove(contact)
-            updateUI()
+            refreshUI()
         }
         binding.recyclerViewContacts.adapter = contactAdapter
     }
@@ -37,29 +38,29 @@ class MainActivity : AppCompatActivity() {
         binding.fabAddContact.setOnClickListener {
             val bottomSheetFragment = AddContactBottomSheetFragment { contact ->
                 contacts.add(contact)
-                updateUI()
                 binding.recyclerViewContacts.smoothScrollToPosition(contacts.size - 1)
+                refreshUI()
             }
             bottomSheetFragment.show(supportFragmentManager, AddContactBottomSheetFragment.TAG)
         }
 
         binding.fabDeleteLastContact.setOnClickListener {
             contacts.removeLastOrNull()
-            updateUI()
+            refreshUI()
         }
     }
 
-    private fun updateUI() {
+    private fun refreshUI() {
         contactAdapter.submitList(contacts.toList())
 
         if (contacts.isEmpty()) {
             binding.recyclerViewContacts.visibility = View.GONE
-            binding.emptyContact.visibility = View.VISIBLE
             binding.fabDeleteLastContact.visibility = View.GONE
+            binding.emptyContact.visibility = View.VISIBLE
         } else {
             binding.recyclerViewContacts.visibility = View.VISIBLE
-            binding.emptyContact.visibility = View.GONE
             binding.fabDeleteLastContact.visibility = View.VISIBLE
+            binding.emptyContact.visibility = View.GONE
         }
 
         binding.fabAddContact.visibility = if (contacts.size >= 6) View.GONE else View.VISIBLE
